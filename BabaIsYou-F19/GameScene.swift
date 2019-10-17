@@ -15,16 +15,66 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        var player:SKSpriteNode!
        let PLAYER_SPEED:CGFloat = 20
     
+    var winblock:SKSpriteNode!
+     var stopblock:SKSpriteNode!
+     var flagblock:SKSpriteNode!
+    var wallblock:SKSpriteNode!
+    
+    
+
     
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
          self.player = self.childNode(withName: "baba") as! SKSpriteNode
+        self.winblock = self.childNode(withName: "winblock") as! SKSpriteNode
+
+        self.stopblock = self.childNode(withName: "stopblock") as? SKSpriteNode
+
+        self.flagblock = self.childNode(withName: "flagblock") as! SKSpriteNode
+
+        self.wallblock = self.childNode(withName: "wallblock") as? SKSpriteNode
+
         
     }
    
     func didBegin(_ contact: SKPhysicsContact) {
         print("Something collided!")
+        let nodeA = contact.bodyA.node
+               let nodeB = contact.bodyB.node
+               
+               if (nodeA == nil || nodeB == nil) {
+                   return
+               }
+        
+        if (nodeA!.name == "player" && nodeB!.name == "winblock") {
+                        print("RESETTING POSITION-AAAA")
+               }
+        
+        
+        if (nodeA!.name == "winblock" && nodeB!.name == "player") {
+                   print("RESETTING POSITION-BBBBB")
+               }
+        if (nodeA!.name == "player" && nodeB!.name == "flag") {
+                             print("RESETTING POSITION-AAAA")
+                    }
+             
+             
+             if (nodeA!.name == "flag" && nodeB!.name == "player") {
+                        print("YOU WIN@!!!!")
+                    }
+        
+        
+        
+        
+//              self.ground.physicsBody = SKPhysicsBody(rectangleOf: ground.size)
+//              self.ground.physicsBody?.affectedByGravity = false
+//              self.ground.physicsBody?.categoryBitMask = 32
+//              self.ground.physicsBody?.collisionBitMask = 0
+//              self.ground.physicsBody?.contactTestBitMask = 0
+        
+        
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
