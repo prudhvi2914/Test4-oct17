@@ -15,6 +15,7 @@
 		05A5598B2358913600FFE86B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A559892358913600FFE86B /* Main.storyboard */; };
 		05A5598D2358913600FFE86B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A5598C2358913600FFE86B /* Assets.xcassets */; };
 		05A559902358913600FFE86B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A5598E2358913600FFE86B /* LaunchScreen.storyboard */; };
+		E7FB3CB3235958DE0044ED5A /* Win.sks in Resources */ = {isa = PBXBuildFile; fileRef = E7FB3CB2235958DE0044ED5A /* Win.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		05A5598C2358913600FFE86B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05A5598F2358913600FFE86B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05A559912358913600FFE86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7FB3CB2235958DE0044ED5A /* Win.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Win.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				05A559812358913600FFE86B /* GameScene.sks */,
 				05A559832358913600FFE86B /* Actions.sks */,
 				05A559852358913600FFE86B /* GameScene.swift */,
+				E7FB3CB2235958DE0044ED5A /* Win.sks */,
 				05A559872358913600FFE86B /* GameViewController.swift */,
 				05A559892358913600FFE86B /* Main.storyboard */,
 				05A5598C2358913600FFE86B /* Assets.xcassets */,
@@ -132,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7FB3CB3235958DE0044ED5A /* Win.sks in Resources */,
 				05A5598B2358913600FFE86B /* Main.storyboard in Resources */,
 				05A559822358913600FFE86B /* GameScene.sks in Resources */,
 				05A5598D2358913600FFE86B /* Assets.xcassets in Resources */,
