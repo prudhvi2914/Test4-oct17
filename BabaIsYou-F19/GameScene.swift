@@ -21,10 +21,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var wallblock:SKSpriteNode!
     var wall:SKSpriteNode!
     var isblock:SKSpriteNode!
+    var flag:SKSpriteNode!
+
     
     var wallIs = false
     var stopIs = false
-//    var
+    var flagIs = false
+    var winIs = false
 
     
     
@@ -42,6 +45,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.wallblock = self.childNode(withName: "wallblock") as? SKSpriteNode
          self.wall = self.childNode(withName: "wall") as? SKSpriteNode
         self.isblock = self.childNode(withName: "isblock") as? SKSpriteNode
+        self.flag = self.childNode(withName: "flag") as? SKSpriteNode
+
         
     }
    
@@ -56,10 +61,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
-//         self.player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
-//        self.player.physicsBody?.affectedByGravity = false
-//        self.player.physicsBody?.categoryBitMask = 1
-//        self.player.physicsBody?.collisionBitMask = 0
 
 
 
@@ -76,47 +77,107 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                    }
         
         
-        //implementing wall is stop
         
-        if (nodeA!.name == "wallblock" && nodeB!.name == "isblock") {
-//            print("wall is stop")
-            wallIs = true
-         }
-        if (nodeA!.name == "isblock" && nodeB!.name == "wallblock") {
-//            print("OTHER wall is stop")
-            wallIs = true
-            print("\(wallIs)")
-         }
-        if(wallIs && (nodeA!.name == "stopblock" && nodeB!.name == "isblock")) {
-          print("OTHER STOP is stop")
-          stopIs = true
-          print("secondmessage BABABABA:\(stopIs)")
-          print("WALL ISSSSS: \(wallIs)")
-            makeWallStop()
-          }
-        else{
-            makePlayerWalkThroughWalls()
-            
-        }
-        if  (wallIs && (nodeA!.name == "isblock" && nodeB!.name == "stopblock")) {
-          print("OTHER STOP is stop")
-          stopIs = true
-          print("secondmessage:\(stopIs)")
-          print("WALL ISSSSS: \(wallIs)")
-            makeWallStop()
         
-        }else{
-            makePlayerWalkThroughWalls()
-        
-        }
-//        if(wallIs && stopIs == false){
+//        //implementing wall is stop
 //
-//            self.player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
-//                           self.player.physicsBody?.affectedByGravity = false
-//                           self.player.physicsBody?.categoryBitMask = 1
-//                           self.player.physicsBody?.collisionBitMask = 14
+//        if (nodeA!.name == "wallblock" && nodeB!.name == "isblock") {
+////            print("wall is stop")
+//            wallIs = true
+//         }
+//        if (nodeA!.name == "isblock" && nodeB!.name == "wallblock") {
+////            print("OTHER wall is stop")
+//            wallIs = true
+//            print("\(wallIs)")
+//         }
+//        if(wallIs && (nodeA!.name == "stopblock" && nodeB!.name == "isblock")) {
+//          print("OTHER STOP is stop")
+//          stopIs = true
+//          print("secondmessage BABABABA:\(stopIs)")
+//          print("WALL ISSSSS: \(wallIs)")
+//            makeWallStop()
+//          }
+////        else{
+////            makePlayerWalkThroughWalls()
+////
+////        }
+//        if  (wallIs && (nodeA!.name == "isblock" && nodeB!.name == "stopblock")) {
+//          print("OTHER STOP is stop")
+//          stopIs = true
+//          print("secondmessage:\(stopIs)")
+//          print("WALL ISSSSS: \(wallIs)")
+//            makeWallStop()
 //
-//        }
+//       }
+////            else{
+////            makePlayerWalkThroughWalls()
+////
+////        }
+        
+        //FLAG IS STOP
+        if (nodeA!.name == "flagblock" && nodeB!.name == "isblock") {
+                      print("1")
+                       flagIs = true
+                    }
+                   if (nodeA!.name == "isblock" && nodeB!.name == "flagblock") {
+                       print("2")
+                       flagIs = true
+                    }
+                   if(flagIs && (nodeA!.name == "stopblock" && nodeB!.name == "isblock")) {
+                     print("You won")
+                     winIs = true
+                     print("one:\(flagIs)")
+                     print("WALL ISSSSS: \(winIs)")
+                    
+                    
+                    self.flag.physicsBody = SKPhysicsBody(rectangleOf: flag.size)
+                    self.flag.physicsBody?.affectedByGravity = false
+                    self.flag.physicsBody?.categoryBitMask = 1
+                    self.player.physicsBody?.collisionBitMask = 14
+                    
+                    
+                    
+                    
+                     }
+
+                   if  (flagIs && (nodeA!.name == "isblock" && nodeB!.name == "stopblock")) {
+                     print("OTHER STOP is stop")
+                     stopIs = true
+                     print("secondmessage:\(stopIs)")
+                     print("WALL ISSSSS: \(winIs)")
+
+                   }
+        
+        
+        
+        
+        
+//          if (nodeA!.name == "flagblock" && nodeB!.name == "isblock") {
+//               print("1")
+//                flagIs = true
+//             }
+//            if (nodeA!.name == "isblock" && nodeB!.name == "flagblock") {
+//                print("2")
+//                flagIs = true
+//             }
+//            if(flagIs && (nodeA!.name == "winblock" && nodeB!.name == "isblock")) {
+//              print("You won")
+//              winIs = true
+//              print("one:\(flagIs)")
+//              print("WALL ISSSSS: \(winIs)")
+//              }
+//
+//            if  (flagIs && (nodeA!.name == "isblock" && nodeB!.name == "winblock")) {
+//              print("OTHER STOP is stop")
+//              stopIs = true
+//              print("secondmessage:\(stopIs)")
+//              print("WALL ISSSSS: \(winIs)")
+//
+//            }
+       
+        
+        
+        
                       
 //            //implementing wall is Win
 //           if (nodeA!.name == "wallblock" && nodeB!.name == "isblock") {
@@ -156,22 +217,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                                             }
 //
 //                                       }
-//
-//
-                }
+////
+////
+               }
     
-//
-//                 self.winblock.physicsBody = SKPhysicsBody(rectangleOf: wall.size)
-//                 self.winblock.physicsBody?.affectedByGravity = false
-//                 self.winblock.physicsBody?.categoryBitMask = 32
-//                 self.winblock.physicsBody?.collisionBitMask = 0
-//        self.winblock.physicsBody?.contactTestBitMask = 0
-//
-//              self.ground.physicsBody = SKPhysicsBody(rectangleOf: ground.size)
-//              self.ground.physicsBody?.affectedByGravity = false
-//              self.ground.physicsBody?.categoryBitMask = 32
-//              self.ground.physicsBody?.collisionBitMask = 0
-//              self.ground.physicsBody?.contactTestBitMask = 0
+
         
     func makeWallStop(){
                 self.wall.physicsBody = SKPhysicsBody(rectangleOf: wall.size)
